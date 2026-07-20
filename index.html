@@ -1,1 +1,383 @@
-<!doctype html><html lang='es'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Panorama Global</title><link rel='stylesheet' href='styles.css'></head><body><header><h1>Panorama Global</h1><nav><a>Inicio</a><a>Política</a><a>Economía</a><a>Mundo</a><a>Tecnología</a></nav></header><main><section class='hero'><h2>Noticias que explican el mundo</h2><p>Información sobre política, economía y actualidad.</p></section><section><article><h3>Artículo destacado</h3><p>Aquí aparecerán artículos de más de 1000 palabras.</p><button>Leer más</button></article></section></main><footer>© 2026 Panorama Global</footer></body></html>
+<!doctype html>
+<html lang="es"><head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260720-05-1e78d67"}');</script><script src="/_sdk/f432b76fb310b513.telemetry_sdk.js" integrity="sha512-9FJQ55EKmmqhyyik8BhrMVfm0+iYYfb8uOlRsjtkxJMEI97qOVEI4PnHohDjQAtvAep0IOEpdQ64eki0sz62ug=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panorama Global</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Source Serif Pro', 'serif'],
+                        sans: ['DM Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+  <style>
+        body { font-family: 'DM Sans', sans-serif; }
+        .font-serif { font-family: 'Source Serif Pro', serif; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 700; margin: 1.5rem 0 0.75rem; }
+        .article-body h3 { font-size: 1.25rem; font-weight: 600; margin: 1.25rem 0 0.5rem; }
+        .article-body p { margin-bottom: 1rem; line-height: 1.8; }
+        .article-body ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+        .article-body li { margin-bottom: 0.5rem; }
+        .ad-space { border: 2px dashed; opacity: 0.4; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; }
+        .toc a { transition: color 0.2s; }
+        .toc a:hover { text-decoration: underline; }
+    </style>
+  <script src="/_sdk/e3937a0574eb2d69.data_sdk.js" type="text/javascript" integrity="sha512-xbp/ACqEQy1aDxYMtXTrR3y5MUbzxuggRR/9sD48Gl4VhLMMCiAHsxMaFV6DTdeBpR6ymF+t2zhPKYkWM3+Jfw=="></script>
+  <script src="/_sdk/9432170dbd2ae0df.resizing_sdk.js" type="text/javascript" integrity="sha512-FeT+58sb1f9ejWPWFjCbJvTT+SDwGV+ngrHUnlO7TWEOoqwOLj6p256kO3vOL7DIWl1cIgrobiof8v2bOigwPg=="></script>
+ </head>
+ <body data-template-id="__page-root" class="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors w-full" style="background: rgb(255, 255, 255);"><!-- Top Bar -->
+  <div data-template-id="top-bar" class="canva-section w-full border-b border-gray-200 dark:border-gray-800 text-sm py-2 px-4" style="background: rgb(249, 250, 251);">
+   <div class="max-w-7xl mx-auto flex items-center justify-between"><span class="text-gray-500 dark:text-gray-400" id="current-date"></span>
+    <div class="flex items-center gap-4"><button id="theme-toggle" class="p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-700" aria-label="Cambiar tema"> <i data-lucide="sun" class="w-4 h-4 dark:hidden"></i> <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i> </button>
+    </div>
+   </div>
+  </div><!-- Header -->
+  <header class="w-full border-b border-gray-200 dark:border-gray-800">
+   <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+    <h1 data-template-id="site-title" class="canva-text font-serif font-bold text-2xl md:text-3xl cursor-pointer" onclick="showHome()" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 34px;">Panorama Global</h1>
+    <div class="relative"><input id="search-input" type="text" placeholder="Buscar..." class="pl-9 pr-3 py-2 rounded-full border border-gray-300 dark:border-gray-600 bg-transparent text-sm w-40 md:w-56 focus:outline-none focus:ring-2 focus:ring-red-500"> <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+    </div>
+   </div>
+  </header><!-- Navigation -->
+  <nav data-template-id="main-nav" class="canva-menu w-full border-b border-gray-100 dark:border-gray-800 overflow-x-auto" style="background: rgb(255, 255, 255);">
+   <div class="max-w-7xl mx-auto px-4 flex gap-1 py-2 text-sm font-medium" id="category-nav"><button class="nav-cat px-3 py-1.5 rounded-full whitespace-nowrap hover:bg-red-50 dark:hover:bg-red-900/20 transition" data-cat="all">Inicio</button> <button class="nav-cat px-3 py-1.5 rounded-full whitespace-nowrap hover:bg-red-50 dark:hover:bg-red-900/20 transition" data-cat="politica-nacional">Política Nacional</button> <button class="nav-cat px-3 py-1.5 rounded-full whitespace-nowrap hover:bg-red-50 dark:hover:bg-red-900/20 transition" data-cat="politica-internacional">Política Internacional</button> <button class="nav-cat px-3 py-1.5 rounded-full whitespace-nowrap hover:bg-red-50 dark:hover:bg-red-900/20 transition" data-cat="economia">Economía</button> <button class="nav-cat px-3 py-1.5 rounded-full whitespace-nowrap hover:bg-red-50 dark:hover:bg-red-900/20 transition" data-cat="finanzas">Finanzas</button> <button class="nav-cat px-3 py-1.5 rounded-full whitespace-nowrap hover:bg-red-50 dark:hover:bg-red-900/20 transition" data-cat="mercados">Mercados</button> <button class="nav-cat px-3 py-1.5 rounded-full whitespace-nowrap hover:bg-red-50 dark:hover:bg-red-900/20 transition" data-cat="tecnologia">Tecnología</button> <button class="nav-cat px-3 py-1.5 rounded-full whitespace-nowrap hover:bg-red-50 dark:hover:bg-red-900/20 transition" data-cat="america-latina">América Latina</button> <button class="nav-cat px-3 py-1.5 rounded-full whitespace-nowrap hover:bg-red-50 dark:hover:bg-red-900/20 transition" data-cat="sociedad">Sociedad</button> <button class="nav-cat px-3 py-1.5 rounded-full whitespace-nowrap hover:bg-red-50 dark:hover:bg-red-900/20 transition" data-cat="opinion">Opinión</button>
+   </div>
+  </nav><!-- HOME VIEW -->
+  <div id="home-view" class="w-full">
+   <div class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8"><!-- Main Content -->
+    <div class="lg:col-span-2 space-y-8"><!-- Hero Featured -->
+     <article class="relative rounded-2xl overflow-hidden cursor-pointer group" onclick="showArticle(0)"><img data-template-id="hero-img" class="canva-image w-full h-72 md:h-96 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" src="https://images.pexels.com/photos/6950212/pexels-photo-6950212.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1280" alt="Políticos en conferencia de prensa internacional">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-6 text-white"><span data-template-id="hero-cat" class="canva-tag text-xs font-semibold uppercase tracking-wider bg-red-600 px-2 py-1 rounded" style="background: rgb(220, 38, 38); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 12px;">Política Internacional</span>
+       <h2 data-template-id="hero-title" class="canva-text font-serif font-bold text-2xl md:text-3xl mt-3 leading-tight" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 28px;">Cumbre del G20: Los acuerdos que redefinirán el comercio mundial en 2026</h2>
+       <p data-template-id="hero-excerpt" class="canva-text mt-2 text-gray-200 text-sm line-clamp-2" style="color: rgb(229, 231, 235); font-weight: 400; font-style: normal; font-size: 14px;">Los líderes de las principales economías alcanzaron consensos históricos sobre aranceles, transición energética y regulación de inteligencia artificial.</p>
+       <div class="mt-3 flex items-center gap-3 text-xs text-gray-300"><span data-template-id="hero-author" class="canva-text" style="color: rgb(209, 213, 219); font-weight: 400; font-style: normal; font-size: 13px;">Carlos Mendoza</span> <span>•</span> <span data-template-id="hero-date" class="canva-text" style="color: rgb(209, 213, 219); font-weight: 400; font-style: normal; font-size: 13px;">20 julio 2026</span> <span>•</span> <span data-template-id="hero-read-time" class="canva-text" style="color: rgb(209, 213, 219); font-weight: 400; font-style: normal; font-size: 13px;">12 min de lectura</span>
+       </div>
+      </div>
+     </article><!-- Recent Articles -->
+     <div>
+      <h2 data-template-id="recent-heading" class="canva-text font-serif font-bold text-xl mb-4 border-b-2 border-red-600 pb-2 inline-block" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 22px;">Noticias Recientes</h2>
+      <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+     </div>
+    </div><!-- Sidebar -->
+    <aside class="space-y-8"><!-- Ad space -->
+     <div class="ad-space border-gray-300 dark:border-gray-600 rounded-lg h-60 text-gray-400">
+      Espacio Publicitario
+     </div><!-- Popular -->
+     <div>
+      <h3 data-template-id="popular-heading" class="canva-text font-serif font-bold text-lg mb-4 border-b-2 border-red-600 pb-2 inline-block" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 20px;">Lo Más Leído</h3>
+      <div id="popular-list" class="space-y-4"></div>
+     </div><!-- Newsletter -->
+     <div data-template-id="newsletter-box" class="canva-card rounded-xl p-6" style="background: rgb(254, 242, 242);">
+      <h3 data-template-id="newsletter-title" class="canva-text font-serif font-bold text-lg mb-2" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 18px;">Suscríbete al Newsletter</h3>
+      <p data-template-id="newsletter-desc" class="canva-text text-sm mb-4" style="color: rgb(75, 85, 99); font-weight: 400; font-style: normal; font-size: 14px;">Recibe las noticias más importantes en tu correo cada mañana.</p>
+      <form id="newsletter-form" class="space-y-3"><label for="nl-email" class="sr-only">Email</label> <input id="nl-email" type="email" placeholder="Tu correo electrónico" required="" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-transparent text-sm focus:outline-none focus:ring-2 focus:ring-red-500"> <button data-template-id="newsletter-btn" type="submit" class="canva-button w-full py-2 rounded-lg font-semibold text-sm transition hover:opacity-90" style="background: rgb(220, 38, 38); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 17px;">Suscribirme</button>
+      </form>
+      <p id="nl-success" class="hidden text-green-600 dark:text-green-400 text-sm mt-2 font-medium">¡Suscripción exitosa!</p>
+     </div>
+    </aside>
+   </div>
+  </div><!-- ARTICLE VIEW -->
+  <div id="article-view" class="w-full hidden">
+   <div class="max-w-7xl mx-auto px-4 py-6"><!-- Breadcrumbs -->
+    <nav aria-label="Breadcrumb" class="text-sm text-gray-500 dark:text-gray-400 mb-4 flex items-center gap-2"><button onclick="showHome()" class="hover:text-red-600 transition">Inicio</button> <span>/</span> <span id="bread-cat" class="text-gray-700 dark:text-gray-300"></span>
+    </nav>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+     <article class="lg:col-span-2">
+      <header class="mb-6"><span id="art-category" class="text-xs font-semibold uppercase tracking-wider text-red-600"></span>
+       <h1 id="art-title" class="font-serif font-bold text-3xl md:text-4xl mt-2 leading-tight"></h1>
+       <p id="art-excerpt" class="text-gray-600 dark:text-gray-400 mt-3 text-lg"></p>
+       <div class="flex items-center gap-4 mt-4 text-sm text-gray-500 dark:text-gray-400"><img id="art-avatar" class="w-10 h-10 rounded-full object-cover" loading="lazy">
+        <div>
+         <p id="art-author" class="font-semibold text-gray-800 dark:text-gray-200"></p>
+         <p><span id="art-date"></span> · <span id="art-read"></span></p>
+        </div>
+       </div>
+      </header><!-- Share -->
+      <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200 dark:border-gray-700"><span class="text-sm font-medium text-gray-500">Compartir:</span> <a id="share-tw" href="#" target="_blank" rel="noopener noreferrer" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"><i data-lucide="twitter" class="w-4 h-4"></i></a> <a id="share-fb" href="#" target="_blank" rel="noopener noreferrer" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"><i data-lucide="facebook" class="w-4 h-4"></i></a> <a id="share-li" href="#" target="_blank" rel="noopener noreferrer" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+      </div><!-- TOC -->
+      <div id="art-toc" class="toc bg-gray-50 dark:bg-gray-900 rounded-xl p-5 mb-8 border border-gray-200 dark:border-gray-700">
+       <h4 class="font-bold text-sm uppercase tracking-wider mb-3 text-gray-600 dark:text-gray-400">Índice</h4>
+       <ul id="toc-list" class="space-y-2 text-sm"></ul>
+      </div><!-- Article image --> <img id="art-image" class="w-full h-64 md:h-80 object-cover rounded-xl mb-8" loading="lazy"> <!-- Body -->
+      <div id="art-body" class="article-body font-serif text-lg leading-relaxed"></div><!-- Tags -->
+      <div id="art-tags" class="flex flex-wrap gap-2 mt-8 pt-6 border-t border-gray-200 dark:border-gray-700"></div><!-- Sources -->
+      <div id="art-sources" class="mt-6 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg text-sm">
+       <h4 class="font-bold mb-2">Fuentes consultadas</h4>
+       <ul id="sources-list" class="list-disc pl-4 text-gray-600 dark:text-gray-400 space-y-1"></ul>
+      </div><!-- Comments -->
+      <section class="mt-10 pt-8 border-t border-gray-200 dark:border-gray-700">
+       <h3 data-template-id="comments-heading" class="canva-text font-serif font-bold text-xl mb-4" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 20px;">Comentarios</h3>
+       <form id="comment-form" class="space-y-3 mb-6"><label for="comment-name" class="sr-only">Nombre</label> <input id="comment-name" type="text" placeholder="Tu nombre" required="" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-transparent text-sm"> <label for="comment-text" class="sr-only">Comentario</label> <textarea id="comment-text" rows="3" placeholder="Escribe tu comentario..." required="" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-transparent text-sm"></textarea> <button data-template-id="comment-btn" type="submit" class="canva-button px-6 py-2 rounded-lg font-semibold text-sm" style="background: rgb(220, 38, 38); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 17px;">Publicar comentario</button>
+       </form>
+       <div id="comments-list" class="space-y-4"></div>
+      </section>
+     </article><!-- Article Sidebar -->
+     <aside class="space-y-6">
+      <div class="ad-space border-gray-300 dark:border-gray-600 rounded-lg h-60 text-gray-400">
+       Espacio Publicitario
+      </div>
+      <div>
+       <h4 data-template-id="related-heading" class="canva-text font-bold text-lg mb-4 border-b-2 border-red-600 pb-2 inline-block" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 18px;">Artículos Relacionados</h4>
+       <div id="related-list" class="space-y-4"></div>
+      </div>
+     </aside>
+    </div>
+   </div>
+  </div><!-- Footer -->
+  <footer data-template-id="footer-section" class="canva-footer w-full border-t border-gray-200 dark:border-gray-800 mt-12" style="background: rgb(17, 24, 39);">
+   <div class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div>
+     <h4 data-template-id="footer-brand" class="canva-text font-serif font-bold text-xl mb-3" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 17px;">Panorama Global</h4>
+     <p data-template-id="footer-desc" class="canva-text text-sm" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 17px;">Periodismo de investigación, análisis político y económico con rigor y profundidad. Información que explica el mundo.</p>
+    </div>
+    <div>
+     <h4 data-template-id="footer-cat-title" class="canva-text font-bold mb-3" style="color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 17px;">Categorías</h4>
+     <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+      <li>Política Nacional</li>
+      <li>Economía</li>
+      <li>Tecnología</li>
+      <li>América Latina</li>
+      <li>Opinión</li>
+     </ul>
+    </div>
+    <div>
+     <h4 data-template-id="footer-contact-title" class="canva-text font-bold mb-3" style="color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 17px;">Contacto</h4>
+     <p data-template-id="footer-contact-info" class="canva-text text-sm" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 17px;">redaccion@panoramaglobal.com
+Quito, Ecuador</p>
+    </div>
+   </div>
+   <div class="border-t border-gray-200 dark:border-gray-800 py-4 text-center text-sm text-gray-500"><span data-template-id="footer-copy" class="canva-text" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 17px;">© 2026 Panorama Global. Todos los derechos reservados.</span>
+   </div>
+  </footer>
+  <script src="/_sdk/115ac030b66cb09d.editing_sdk.js" integrity="sha512-iprSVFeQYn3ohqCRHg8icBdabh/A6CUj/2P1u5xqVokDLyuISmuH1lR/W3Xi4krquqPpFtWk6+whjf7zAIy5Zw=="></script>
+  <script>
+    // Articles data
+    const articles = [
+        {
+            id: 0, cat: 'politica-internacional', catLabel: 'Política Internacional',
+            title: 'Cumbre del G20: Los acuerdos que redefinirán el comercio mundial en 2026',
+            excerpt: 'Los líderes de las principales economías alcanzaron consensos históricos sobre aranceles, transición energética y regulación de inteligencia artificial.',
+            author: 'Carlos Mendoza', date: '20 julio 2026', readTime: '12 min de lectura',
+            img: 'https://images.pexels.com/photos/6950212/pexels-photo-6950212.jpeg?auto=compress&cs=tinysrgb&w=1280',
+            imgAlt: 'Políticos en conferencia de prensa',
+            tags: ['G20', 'Comercio Internacional', 'Aranceles', 'Geopolítica'],
+            sources: ['Reuters', 'Financial Times', 'Banco Mundial', 'FMI'],
+            body: `<h2 id="toc-1">El contexto geopolítico previo a la cumbre</h2><p>La reunión del G20 celebrada en Río de Janeiro llegó en un momento de tensiones comerciales sin precedentes. Las disputas arancelarias entre Estados Unidos y China habían alcanzado niveles récord durante el primer semestre de 2026, afectando cadenas de suministro globales y elevando la incertidumbre en los mercados financieros internacionales.</p><p>Según datos del Banco Mundial, el comercio mundial había registrado una contracción del 3,2% interanual, la mayor desde la pandemia de 2020. Los expertos señalaban que sin un acuerdo multilateral, la economía global podría enfrentar una recesión técnica antes de fin de año.</p><h2 id="toc-2">Los tres pilares del acuerdo histórico</h2><h3 id="toc-3">Reducción arancelaria progresiva</h3><p>El primer pilar del acuerdo establece una reducción gradual del 15% en aranceles sobre bienes manufacturados durante los próximos 18 meses. Esta medida beneficiará especialmente a las economías emergentes de América Latina y el Sudeste Asiático, que habían sido las más afectadas por las guerras comerciales bilaterales.</p><h3 id="toc-4">Marco regulatorio para inteligencia artificial</h3><p>Por primera vez en la historia del G20, los líderes acordaron un marco regulatorio común para el desarrollo y despliegue de sistemas de inteligencia artificial. El acuerdo incluye estándares de transparencia algorítmica, protección de datos y responsabilidad corporativa que deberán implementarse antes de diciembre de 2027.</p><h3 id="toc-5">Transición energética acelerada</h3><p>El tercer pilar compromete a los países miembros a destinar al menos el 2% de su PIB a infraestructura de energía renovable durante la próxima década. Los analistas estiman que esto podría movilizar más de 4 billones de dólares en inversiones verdes a nivel global.</p><h2 id="toc-6">Impacto económico y social</h2><p>Los mercados reaccionaron positivamente al anuncio. El S&P 500 subió un 2,8% en la sesión posterior al comunicado oficial, mientras que los mercados emergentes registraron ganancias superiores al 4%. Los bonos soberanos de países en desarrollo también experimentaron una compresión significativa en sus spreads crediticios.</p><p>Sin embargo, no todos los sectores celebran por igual. La industria del acero en la Unión Europea expresó preocupación por la apertura comercial, argumentando que podría exponerlos a competencia desleal de productores asiáticos con costos laborales más bajos.</p><h2 id="toc-7">Análisis de expertos</h2><p>"Este acuerdo marca un punto de inflexión en la gobernanza económica global", señaló María del Carmen Vásquez, directora del Instituto de Relaciones Internacionales de la Universidad de Buenos Aires. "Estamos viendo un retorno al multilateralismo pragmático después de una década de fragmentación."</p><p>Por su parte, el economista jefe de Goldman Sachs para América Latina advirtió que "la implementación será el verdadero desafío. Hemos visto acuerdos similares fracasar en la fase de ejecución cuando los intereses domésticos entran en conflicto con los compromisos internacionales."</p><h2 id="toc-8">Posibles escenarios futuros</h2><p>Los analistas contemplan tres escenarios para los próximos 12 meses: un escenario optimista donde la implementación avanza según lo previsto y el comercio mundial se recupera un 5%; un escenario base con implementación parcial y crecimiento moderado del 2,5%; y un escenario pesimista donde las tensiones geopolíticas resurgen y el acuerdo queda en letra muerta.</p><h2 id="toc-9">Conclusión</h2><p>La cumbre del G20 de 2026 será recordada como un momento definitorio para el orden económico internacional. Los acuerdos alcanzados tienen el potencial de remodelar las relaciones comerciales durante la próxima década, pero su éxito dependerá de la voluntad política de cada nación para implementar los compromisos asumidos.</p><h2 id="toc-10">Preguntas frecuentes</h2><p><strong>¿Cuándo entran en vigor los acuerdos?</strong> La reducción arancelaria comenzará en enero de 2027, con implementación gradual durante 18 meses.</p><p><strong>¿Cómo afecta a América Latina?</strong> La región se beneficiará de menores barreras para sus exportaciones agrícolas y manufactureras, con un impacto estimado de +1,2% en el PIB regional.</p><p><strong>¿El acuerdo es vinculante?</strong> Los compromisos son políticamente vinculantes pero no tienen fuerza legal internacional, lo que significa que su cumplimiento depende de la voluntad de cada gobierno.</p>`
+        },
+        {
+            id: 1, cat: 'economia', catLabel: 'Economía',
+            title: 'Inflación en América Latina: el dilema entre crecimiento y estabilidad de precios',
+            excerpt: 'Los bancos centrales de la región enfrentan decisiones críticas mientras la inflación muestra señales mixtas en el segundo semestre de 2026.',
+            author: 'Ana Lucía Torres', date: '19 julio 2026', readTime: '10 min de lectura',
+            img: 'https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=1280',
+            imgAlt: 'Pantalla de datos del mercado financiero',
+            tags: ['Inflación', 'Bancos Centrales', 'América Latina', 'Política Monetaria'],
+            sources: ['CEPAL', 'BID', 'Banco Central de Chile', 'Banco de México'],
+            body: `<h2 id="toc-1">Panorama inflacionario regional</h2><p>América Latina cierra el primer semestre de 2026 con un panorama inflacionario heterogéneo. Mientras países como Chile y Brasil han logrado reducir sus tasas de inflación a niveles cercanos a sus metas, economías como Argentina y Venezuela continúan enfrentando presiones de precios significativas que erosionan el poder adquisitivo de sus ciudadanos.</p><p>Según el último informe de la CEPAL, la inflación promedio ponderada de la región se ubica en 6,8% interanual, una mejora respecto al 9,2% registrado en el mismo período de 2025, pero aún por encima del promedio histórico de la década anterior a la pandemia.</p><h2 id="toc-2">Decisiones de política monetaria</h2><p>El Banco Central de Chile fue el primero en iniciar un ciclo de recortes de tasas en el segundo trimestre, reduciendo su tasa de política monetaria en 75 puntos base acumulados. La decisión fue respaldada por tres meses consecutivos de inflación dentro del rango meta y una moderación en las expectativas inflacionarias de mediano plazo.</p><p>Brasil siguió un camino similar pero más cauteloso, con recortes de 50 puntos base que reflejan la persistencia de la inflación de servicios y las presiones fiscales derivadas del aumento del gasto público.</p><h2 id="toc-3">Impacto en el crecimiento económico</h2><p>La restricción monetaria prolongada ha tenido costos evidentes en el crecimiento. La inversión privada en la región creció apenas un 1,3% en términos reales durante el primer semestre, muy por debajo del 4,5% necesario para cerrar brechas de infraestructura y generar empleo de calidad.</p><h2 id="toc-4">Ventajas y desventajas del enfoque actual</h2><p><strong>Ventajas:</strong> Mayor credibilidad institucional, anclaje de expectativas, atracción de inversión extranjera, estabilidad cambiaria relativa.</p><p><strong>Desventajas:</strong> Menor crecimiento económico, aumento del desempleo juvenil, restricción crediticia para pymes, mayor desigualdad en el corto plazo.</p><h2 id="toc-5">Conclusión</h2><p>Los bancos centrales latinoamericanos navegan un equilibrio delicado. La prioridad debe ser mantener la credibilidad ganada sin sacrificar innecesariamente el crecimiento, especialmente en un contexto de creciente demanda social por mejores condiciones de vida.</p><h2 id="toc-6">Preguntas frecuentes</h2><p><strong>¿Qué país tiene la menor inflación de la región?</strong> Chile, con un 3,1% interanual, seguido de cerca por Perú con 3,4%.</p><p><strong>¿Cuándo se normalizarán las tasas de interés?</strong> Los analistas proyectan que la mayoría de bancos centrales alcanzarán tasas neutrales hacia mediados de 2027.</p>`
+        },
+        {
+            id: 2, cat: 'tecnologia', catLabel: 'Tecnología',
+            title: 'La carrera por la inteligencia artificial general: avances y riesgos en 2026',
+            excerpt: 'Las grandes tecnológicas aceleran sus inversiones en AGI mientras reguladores y expertos advierten sobre los riesgos existenciales de sistemas cada vez más autónomos.',
+            author: 'Roberto Fuentes', date: '18 julio 2026', readTime: '14 min de lectura',
+            img: 'https://images.pexels.com/photos/7562087/pexels-photo-7562087.jpeg?auto=compress&cs=tinysrgb&w=1280',
+            imgAlt: 'Mano tocando circuito futurista con luces azules',
+            tags: ['Inteligencia Artificial', 'AGI', 'Regulación Tech', 'Silicon Valley'],
+            sources: ['MIT Technology Review', 'Nature', 'OpenAI', 'DeepMind'],
+            body: `<h2 id="toc-1">Estado actual de la investigación en AGI</h2><p>El año 2026 ha marcado un punto de inflexión en la carrera por desarrollar inteligencia artificial general (AGI). Los principales laboratorios de investigación —OpenAI, DeepMind, Anthropic y Meta AI— han reportado avances significativos en capacidades de razonamiento, planificación y transferencia de conocimiento entre dominios.</p><p>Los últimos modelos demuestran habilidades que hace apenas dos años se consideraban a décadas de distancia: resolución de problemas científicos complejos, generación de hipótesis originales y adaptación autónoma a nuevas tareas sin entrenamiento específico.</p><h2 id="toc-2">Las inversiones que mueven la industria</h2><p>Según datos de CB Insights, las inversiones en empresas de IA alcanzaron los 180.000 millones de dólares en el primer semestre de 2026, triplicando las cifras de 2024. Microsoft lidera con compromisos superiores a 50.000 millones, seguida por Alphabet con 35.000 millones y Amazon con 28.000 millones.</p><h2 id="toc-3">Riesgos y preocupaciones</h2><p>Un grupo de 400 investigadores firmó una carta abierta advirtiendo sobre los riesgos de una carrera descontrolada hacia la AGI. Entre las principales preocupaciones se incluyen la pérdida masiva de empleos, el uso militar autónomo, la concentración de poder en pocas corporaciones y los riesgos existenciales de sistemas que superen la inteligencia humana.</p><h2 id="toc-4">Marco regulatorio emergente</h2><p>La Unión Europea activó las primeras disposiciones de su AI Act, mientras que Estados Unidos trabaja en una orden ejecutiva que establecería requisitos de transparencia para modelos con capacidades superiores a umbrales definidos. China, por su parte, ha implementado su propio marco regulatorio centrado en el control estatal del desarrollo de AGI.</p><h2 id="toc-5">Conclusión</h2><p>La humanidad se encuentra ante una de las decisiones tecnológicas más trascendentales de su historia. El desarrollo responsable de AGI requiere cooperación internacional sin precedentes y un equilibrio entre innovación y precaución que aún no se ha alcanzado.</p>`
+        },
+        {
+            id: 3, cat: 'america-latina', catLabel: 'América Latina',
+            title: 'Ecuador: reforma fiscal y perspectivas económicas para el segundo semestre',
+            excerpt: 'El gobierno ecuatoriano impulsa una ambiciosa reforma tributaria mientras busca estabilizar las finanzas públicas y reactivar la inversión privada.',
+            author: 'Patricia Calderón', date: '17 julio 2026', readTime: '9 min de lectura',
+            img: 'https://images.pexels.com/photos/27937841/pexels-photo-27937841.jpeg?auto=compress&cs=tinysrgb&w=1280',
+            imgAlt: 'Vista de torre del reloj y edificios modernos en Bogotá, Colombia',
+            tags: ['Ecuador', 'Reforma Fiscal', 'Economía Latinoamericana', 'Inversión'],
+            sources: ['Banco Central del Ecuador', 'FMI', 'CEPAL', 'Ministerio de Finanzas'],
+            body: `<h2 id="toc-1">Contexto de la reforma</h2><p>Ecuador enfrenta un momento económico decisivo. Con un déficit fiscal del 4,2% del PIB y una deuda pública que supera el 58% del producto, el gobierno ha presentado al Congreso un proyecto de reforma tributaria integral que busca ampliar la base impositiva sin desincentivar la inversión productiva.</p><h2 id="toc-2">Principales medidas propuestas</h2><p>La reforma contempla la simplificación del régimen tributario para pymes, la creación de incentivos para la inversión en sectores estratégicos como minería responsable y tecnología, y el fortalecimiento de la recaudación mediante herramientas digitales de fiscalización.</p><h2 id="toc-3">Reacciones del sector empresarial</h2><p>Las cámaras de comercio han expresado un apoyo cauteloso, condicionado a que las medidas no incrementen la carga tributaria efectiva sobre empresas formales. El sector exportador, particularmente el camaronero y bananero, ha solicitado mantener los incentivos vigentes para preservar competitividad internacional.</p><h2 id="toc-4">Perspectivas para el segundo semestre</h2><p>El FMI proyecta un crecimiento del 2,8% para Ecuador en 2026, condicionado a la aprobación de reformas estructurales y la estabilidad del precio del petróleo. La dolarización continúa siendo un ancla de estabilidad que diferencia al país de otros en la región con presiones cambiarias.</p><h2 id="toc-5">Conclusión</h2><p>El éxito de la reforma fiscal ecuatoriana dependerá de su capacidad para generar consensos políticos y mantener la confianza de los mercados internacionales, elementos cruciales en una economía dolarizada con acceso limitado al financiamiento soberano.</p>`
+        },
+        {
+            id: 4, cat: 'sociedad', catLabel: 'Sociedad',
+            title: 'Salud mental juvenil: la crisis silenciosa que preocupa a América Latina',
+            excerpt: 'Estudios recientes revelan un aumento alarmante en trastornos de ansiedad y depresión entre jóvenes de 15 a 25 años en toda la región.',
+            author: 'Daniela Moreno', date: '16 julio 2026', readTime: '11 min de lectura',
+            img: 'https://images.pexels.com/photos/3892902/pexels-photo-3892902.jpeg?auto=compress&cs=tinysrgb&w=1280',
+            imgAlt: 'Grupo diverso de personas reunidas en evento comunitario',
+            tags: ['Salud Mental', 'Juventud', 'Crisis Social', 'Políticas Públicas'],
+            sources: ['OMS', 'OPS', 'UNICEF', 'Universidad de Chile'],
+            body: `<h2 id="toc-1">Magnitud del problema</h2><p>La Organización Mundial de la Salud reporta que uno de cada cuatro jóvenes latinoamericanos entre 15 y 25 años presenta síntomas de ansiedad clínica o depresión moderada a severa. La cifra representa un aumento del 40% respecto a mediciones pre-pandemia y coloca a la salud mental juvenil como una emergencia de salud pública regional.</p><h2 id="toc-2">Factores contribuyentes</h2><p>Los investigadores identifican una convergencia de factores: el impacto prolongado de la pandemia en el desarrollo socioemocional, la precarización laboral juvenil, el uso excesivo de redes sociales, la crisis climática como generadora de eco-ansiedad, y la falta de acceso a servicios de salud mental en sistemas públicos sobrecargados.</p><h2 id="toc-3">Respuestas institucionales</h2><p>Varios países han comenzado a implementar programas específicos. Chile lanzó su Plan Nacional de Salud Mental Juvenil con un presupuesto de 200 millones de dólares para tres años. Colombia incorporó la atención psicológica en atención primaria, y México expandió líneas de crisis con atención 24/7.</p><h2 id="toc-4">Conclusión</h2><p>La salud mental juvenil requiere un abordaje integral que combine políticas públicas robustas, inversión en infraestructura de atención, regulación de plataformas digitales y transformación de entornos educativos y laborales. El costo de la inacción se medirá en generaciones perdidas.</p>`
+        }
+    ];
+
+    // Theme toggle
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'dark') html.classList.add('dark');
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+        html.classList.toggle('dark');
+        localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // Date
+    document.getElementById('current-date').textContent = new Date().toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+    // Render home
+    let currentCat = 'all';
+
+    function renderArticles(cat) {
+        currentCat = cat;
+        const filtered = cat === 'all' ? articles.slice(1) : articles.filter(a => a.cat === cat);
+        const grid = document.getElementById('articles-grid');
+        grid.innerHTML = '';
+        filtered.forEach(a => {
+            const el = document.createElement('article');
+            el.className = 'cursor-pointer group';
+            el.onclick = () => showArticle(a.id);
+            el.innerHTML = `<img src="${a.img}" alt="${a.imgAlt}" loading="lazy" class="w-full h-44 object-cover rounded-xl mb-3 group-hover:scale-[1.02] transition-transform"><span class="text-xs font-semibold uppercase tracking-wider text-red-600">${a.catLabel}</span><h3 class="font-serif font-bold mt-1 leading-snug group-hover:text-red-700 transition">${a.title}</h3><p class="text-sm text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">${a.excerpt}</p><div class="text-xs text-gray-500 mt-2">${a.author} · ${a.readTime}</div>`;
+            grid.appendChild(el);
+        });
+        if (filtered.length === 0) grid.innerHTML = '<p class="col-span-2 text-gray-500 text-center py-8">No hay artículos en esta categoría.</p>';
+
+        // Update nav active state
+        document.querySelectorAll('.nav-cat').forEach(btn => {
+            btn.classList.toggle('bg-red-600', btn.dataset.cat === cat);
+            btn.classList.toggle('text-white', btn.dataset.cat === cat);
+        });
+    }
+
+    function renderPopular() {
+        const list = document.getElementById('popular-list');
+        list.innerHTML = '';
+        [0, 2, 4].forEach((idx, i) => {
+            const a = articles[idx];
+            const el = document.createElement('div');
+            el.className = 'flex gap-3 cursor-pointer group';
+            el.onclick = () => showArticle(a.id);
+            el.innerHTML = `<span class="text-2xl font-bold text-red-600/30 font-serif">${i + 1}</span><div><h4 class="text-sm font-semibold leading-snug group-hover:text-red-700 transition">${a.title}</h4><span class="text-xs text-gray-500">${a.readTime}</span></div>`;
+            list.appendChild(el);
+        });
+    }
+
+    // Category nav
+    document.querySelectorAll('.nav-cat').forEach(btn => {
+        btn.addEventListener('click', () => renderArticles(btn.dataset.cat));
+    });
+
+    // Search
+    document.getElementById('search-input').addEventListener('input', (e) => {
+        const q = e.target.value.toLowerCase();
+        if (!q) { renderArticles(currentCat); return; }
+        const filtered = articles.filter(a => a.title.toLowerCase().includes(q) || a.excerpt.toLowerCase().includes(q));
+        const grid = document.getElementById('articles-grid');
+        grid.innerHTML = '';
+        filtered.forEach(a => {
+            const el = document.createElement('article');
+            el.className = 'cursor-pointer group';
+            el.onclick = () => showArticle(a.id);
+            el.innerHTML = `<span class="text-xs font-semibold uppercase tracking-wider text-red-600">${a.catLabel}</span><h3 class="font-serif font-bold mt-1 leading-snug group-hover:text-red-700 transition">${a.title}</h3><p class="text-sm text-gray-600 dark:text-gray-400 mt-1">${a.excerpt}</p>`;
+            grid.appendChild(el);
+        });
+    });
+
+    // Article view
+    function showArticle(id) {
+        const a = articles[id];
+        document.getElementById('home-view').classList.add('hidden');
+        document.getElementById('article-view').classList.remove('hidden');
+        document.getElementById('bread-cat').textContent = a.catLabel;
+        document.getElementById('art-category').textContent = a.catLabel;
+        document.getElementById('art-title').textContent = a.title;
+        document.getElementById('art-excerpt').textContent = a.excerpt;
+        document.getElementById('art-author').textContent = a.author;
+        document.getElementById('art-date').textContent = a.date;
+        document.getElementById('art-read').textContent = a.readTime;
+        document.getElementById('art-image').src = a.img;
+        document.getElementById('art-image').alt = a.imgAlt;
+        document.getElementById('art-avatar').src = 'https://images.pexels.com/photos/36712861/pexels-photo-36712861.jpeg?auto=compress&cs=tinysrgb&w=100';
+        document.getElementById('art-body').innerHTML = a.body;
+
+        // TOC
+        const tocList = document.getElementById('toc-list');
+        tocList.innerHTML = '';
+        document.getElementById('art-body').querySelectorAll('h2, h3').forEach(h => {
+            const li = document.createElement('li');
+            li.innerHTML = `<a href="#${h.id}" class="${h.tagName === 'H3' ? 'pl-4' : ''} text-gray-600 dark:text-gray-400 hover:text-red-600">${h.textContent}</a>`;
+            tocList.appendChild(li);
+        });
+
+        // Tags
+        const tagsEl = document.getElementById('art-tags');
+        tagsEl.innerHTML = '';
+        a.tags.forEach(t => { tagsEl.innerHTML += `<span class="px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-xs font-medium">${t}</span>`; });
+
+        // Sources
+        const srcList = document.getElementById('sources-list');
+        srcList.innerHTML = '';
+        a.sources.forEach(s => { srcList.innerHTML += `<li>${s}</li>`; });
+
+        // Related
+        const related = document.getElementById('related-list');
+        related.innerHTML = '';
+        articles.filter(r => r.id !== id).slice(0, 3).forEach(r => {
+            const el = document.createElement('div');
+            el.className = 'cursor-pointer group';
+            el.onclick = () => showArticle(r.id);
+            el.innerHTML = `<h5 class="text-sm font-semibold group-hover:text-red-700 transition leading-snug">${r.title}</h5><span class="text-xs text-gray-500">${r.readTime}</span>`;
+            related.appendChild(el);
+        });
+
+        // Share links
+        const url = encodeURIComponent(window.location.href);
+        const text = encodeURIComponent(a.title);
+        document.getElementById('share-tw').href = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+        document.getElementById('share-fb').href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+        document.getElementById('share-li').href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+
+        // Clear comments
+        document.getElementById('comments-list').innerHTML = '';
+        window.scrollTo(0, 0);
+    }
+
+    function showHome() {
+        document.getElementById('article-view').classList.add('hidden');
+        document.getElementById('home-view').classList.remove('hidden');
+        window.scrollTo(0, 0);
+    }
+
+    // Newsletter
+    document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        document.getElementById('nl-success').classList.remove('hidden');
+        e.target.reset();
+        setTimeout(() => document.getElementById('nl-success').classList.add('hidden'), 3000);
+    });
+
+    // Comments
+    document.getElementById('comment-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('comment-name').value;
+        const text = document.getElementById('comment-text').value;
+        const el = document.createElement('div');
+        el.className = 'p-4 bg-gray-50 dark:bg-gray-900 rounded-lg';
+        el.innerHTML = `<p class="font-semibold text-sm">${name}</p><p class="text-sm mt-1 text-gray-700 dark:text-gray-300">${text}</p><span class="text-xs text-gray-500">Ahora mismo</span>`;
+        document.getElementById('comments-list').prepend(el);
+        e.target.reset();
+    });
+
+    // Init
+    renderArticles('all');
+    renderPopular();
+    lucide.createIcons();
+    </script>
+ 
+</body></html>
